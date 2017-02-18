@@ -11,7 +11,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import org.ilintar.study.question.*;
 import org.ilintar.study.question.event.RadioQuestionAnswerListener;
+import org.ilintar.study.question.event.RadioWithTimeQuestionAnswerListener;
 import org.ilintar.study.question.event.WriteQuestionAnswerListener;
+import org.ilintar.study.question.event.WriteWithTimeQuestionAnswerListener;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -108,6 +110,12 @@ public class MainScreenController {
         }
         else if (questionType.equals("write")) {
             q.addQuestionAnsweredListener(new WriteQuestionAnswerListener(answerHolder, this));
+        }
+        else if (questionType.equals("radiowithtime")) {
+        	q.addQuestionAnsweredListener(new RadioWithTimeQuestionAnswerListener(answerHolder, this));
+        }
+        else if (questionType.equals("writewithtime")) {
+        	q.addQuestionAnsweredListener(new WriteWithTimeQuestionAnswerListener(answerHolder, this));
         }
         //TODO: dodac nastepne typy pytan, wygenerowalem juz klasy
         return q.getRenderedQuestion();

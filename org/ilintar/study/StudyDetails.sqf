@@ -7,6 +7,20 @@ EndQuestion
 StartQuestion type=write
 Third question
 EndQuestion
+StartQuestion type=radiowithtime
+Fourth question
+First answer
+A
+Second answer
+B
+Third answer modified
+C
+Fourth answer
+D
+EndQuestion
+StartQuestion type=writewithtime
+Fifth question
+EndQuestion
 StartQuestion type=radio
 This is the question
 First answer
