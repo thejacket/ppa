@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import org.ilintar.study.question.*;
@@ -169,13 +170,19 @@ public class MainScreenController {
         }
 
     }
-    private void resultsScreen(){           //TODO: wyniki w oknie a nie konsoli
-        System.out.println("\nResults");
-        for (Object o: answerHolder.getAnswers()) {                 //ufff, getAnswers() zwraca odpowiedzi jako ArrayList
-            System.out.println(o);
-        }
-    }
+    private void resultsScreen(){
 
+        mainStudy.getChildren().clear();
+        TextArea txta = new TextArea();
+        txta.setEditable(false);
+        mainStudy.getChildren().add(new Text(10,10, "Thank you for participating in this study.\n\nResults:"));
+        int i = 0;
+        for (Object o: answerHolder.getAnswers()) {               //ufff, getAnswers() zwraca odpowiedzi jako ArrayList
+            txta.setText(txta.getText() + "Question " + i + ": " + o.toString() + "\n");
+            i++;
+        }
+        mainStudy.getChildren().add(txta);
+    }
     public void generateStudy(ActionEvent actionEvent) { //TODO: interfejs do generowania .sqf dla naszego programu
 
         mainStudy.getChildren().clear();
