@@ -151,14 +151,7 @@ public class MainScreenController {
         resultsButton.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
             @Override
             public void handle(javafx.event.ActionEvent event) {
-                if (resultsHandlerCount < 3) {
-                    resultsScreen();
-                    resultsHandlerCount++;
-                }
-                else if (resultsHandlerCount >= 3) {
-                    resultsButton.setText("Them results, in console they are");     //this is supposed to be funny
-                    exitButton.setVisible(false);
-                }
+                resultsScreen();
             }
         });
 
